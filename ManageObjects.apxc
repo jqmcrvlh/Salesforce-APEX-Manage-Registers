@@ -1,0 +1,90 @@
+public class ManageObjects {
+    
+    public void InsertContactFromList(){
+        List<string> oppIds = new List<string>{'0018a00001qnHxzAAE','0018a00001qnHy0AAE','0018a00001qnHy9AAE'};
+        //List<Account> accs = [select id from Account where id in :oppIds];
+        List<Contact> ContactsTesting = new List<Contact>();
+        Contact ContactTest;
+        for(integer i = 0; i < oppIds.size(); i++){
+           ContactTest=new Contact(
+                				FirstName='Contato automatico',
+                              	LastName='em lista',
+                              	Fax = '22555550',
+                				Phone = '22555550',
+                              	Department='Corporate Sales',
+                              	Title='Manager Contact Testing',
+                              	Email='Feijoada@XPI.com',
+            					AccountId = oppIds[i]);
+            ContactsTesting.add(ContactTest);
+        }
+        insert ContactsTesting;
+    }
+    
+    Public void UpdateAccount(){
+        List<Id> oppIds = new List<Id>{'0018a00001qnHxzAAE','0018a00001qnHy0AAE','0018a00001qnHy9AAE'};
+        List<Account> accs = [select id from Account where id in :oppIds];
+        for(Account acc : accs){
+            acc.Website = 'https://www.Globo.com.br/';
+            acc.Ownership = 'Private';
+            acc.Porte_Empresa__c = 'Empresa Média';
+        }
+        update accs;        
+    }
+    
+    public void AccountInsert(){//inserir contas
+        List<Account> AccountsTesting = new List<Account>();
+        Account AccountTest;
+        for(Integer i=0;i<=10;i++)
+        {
+            AccountTest=new Account(
+                			  Name='AA Lista - '+string.valueof(i)+' Testing Account '+string.valueof(i),                              
+                              Phone = '2255555-'+string.valueof(i),
+                              Type='Prospect',
+                              Rating='HOT',
+                			  Industry ='Banking',
+                			  Ownership = 'Private',
+    						  Website = 'https://www.BB.com.br/'+string.valueof(i));
+            AccountsTesting.add(AccountTest);
+        }
+        insert AccountsTesting;
+    }
+    ///
+    ///
+    public void LeadsInsert(){//inserir Leads
+        List<Lead> leadstTesting = new List<Lead>();
+        Lead LeadTest;
+        for(Integer i=0;i<=5;i++)
+        {
+            LeadTest=new Lead(
+                			  FirstName='Lead Lista Testing'+string.valueof(i),
+                              LastName='Feijão'+string.valueof(i),
+                              Phone = '22555550',
+                              Company='Bolsa Brasileira de Mercadorias'+string.valueof(i),
+                              State='Other',
+                              Email=+string.valueof(i)+'Feijao@b3.com',
+                              Status = 'Open - Not Contacted');
+            leadstTesting.add(LeadTest);
+        }
+        insert leadstTesting;
+    }
+    ///
+    ///
+    public void ContactsInsert(){// Inserir Contatos
+        List<Contact> ContactsTesting = new List<Contact>();
+        Contact ContactTest;
+        for(Integer i=0;i<=5;i++)
+        {
+            ContactTest=new Contact(
+                				FirstName='Contact Lista Testing'+string.valueof(i),
+                              	LastName='Feijoada'+string.valueof(i),
+                              	Fax = '22555550',
+                				Phone = '22555550',
+                              	Department='Corporate Sales'+string.valueof(i),
+                              	Title='Manager Contact Testing'+string.valueof(i),
+                              	Email='Feijoada'+string.valueof(i)+'@XPI.com');
+            ContactsTesting.add(ContactTest);
+        }
+        insert ContactsTesting;
+    }
+    
+}
