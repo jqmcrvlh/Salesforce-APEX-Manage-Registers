@@ -1,0 +1,7 @@
+ManageObjects inserirObjeto = new ManageObjects();
+
+inserirObjeto.LeadsInsert();
+inserirObjeto.ContactsInsert();
+inserirObjeto.AccountInsert();
+inserirObjeto.UpdateAccount();
+inserirObjeto.InsertContactFromList();
